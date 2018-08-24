@@ -145,7 +145,7 @@ class Vocab(object):
             embedding_path: the path of the pretrained embedding file
         """
         over_map_num = 0
-        for line in codecs.open(embedding_path, 'r', 'utf-8'):
+        for line in codecs.open(embedding_path, 'r', 'utf-8', 'replace'):
             contents = line.strip().split(" ")
             token = contents[0]
             if token not in self.token2id:
