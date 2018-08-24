@@ -193,10 +193,14 @@ def run():
                         filemode='a+',
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
-    # prepare(args)
+    prepare(args)
+    print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
     train(args)
+    print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
     evaluate(args)
+    print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
     predict(args)
+    print("\033[0;30;46m WHY Info: Test data predict complete. Everything done. \033[0m ")
 
 
 if __name__ == '__main__':
