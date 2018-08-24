@@ -194,8 +194,8 @@ def run():
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
     # prepare(args)
-    # train(args)
-    # evaluate(args)
+    train(args)
+    evaluate(args)
     predict(args)
 
 
