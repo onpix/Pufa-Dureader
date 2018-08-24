@@ -98,7 +98,7 @@ def parse_args():
                                    '../data/data_test_preprocessed.json'],
                                help='list of files that contain the preprocessed test data')
     path_settings.add_argument('--pre_train_file', type=str,
-                               default='../data/mrc.vec', help='pre_train files')
+                               default='../data/mrcnew.vec', help='pre_train files')
     path_settings.add_argument('--vocab_dir', default='../data/vocab_search_pretrain/',
                                help='the dir to save vocabulary')
     path_settings.add_argument('--model_dir', default='../data/models_search_pretrain/',
@@ -203,14 +203,14 @@ def run():
                         filemode='a+',
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
-    # prepare(args)
-    # print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
-    # train(args)
-    # print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
-    # evaluate(args)
-    # print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
+   # prepare(args)
+   # print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
+    #train(args)
+    #print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
+    #evaluate(args)
+    #print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
     predict(args)
-    print("\033[0;30;46m WHY Info: Test data predict complete. Everything done. \033[0m ")
+    #print("\033[0;30;46m WHY Info: Test data predict complete. Everything done. \033[0m ")
 
 
 if __name__ == '__main__':
