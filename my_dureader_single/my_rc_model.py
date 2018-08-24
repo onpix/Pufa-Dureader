@@ -255,16 +255,17 @@ class RCModel(object):
                     bleu_rouge = self.evaluate(eval_batches)
                     print('Dev eval result: {}'.format(bleu_rouge))
 
-                    if bleu_rouge['Rouge-L'] > max_rouge_l:
+                    # if bleu_rouge['Rouge-L'] > max_rouge_l:
+                    if 1:
                         self.save(save_dir, save_prefix + '_' + str(epoch))
                         max_rouge_l = bleu_rouge['Rouge-L']
                         be_patient = 0
-                    else:
-                        be_patient += 1
-                        if be_patient >= 5:
-                            self.learning_rate *= 0.8
-                            for param_group in self.optimizer.param_groups:
-                                param_group['lr'] = self.learning_rate
+                    # else:
+                    #     be_patient += 1
+                    #     if be_patient >= 5:
+                    #         self.learning_rate *= 0.8
+                    #         for param_group in self.optimizer.param_groups:
+                    #             param_group['lr'] = self.learning_rate
             else:
                 self.save(save_dir, save_prefix + '_' + str(epoch))
 
