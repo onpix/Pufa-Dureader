@@ -320,9 +320,12 @@ class RCModel(object):
                     if 'answer_passages' in sample.keys():
                         if best_p_idx in sample['answer_passages']:
                             correct_p_num += 1
- 
-                    if sample['passages'][best_p_idx]['is_selected']:
-                        select_true_num += 1
+                    
+                    try:
+                        if sample['passages'][best_p_idx]['is_selected']:
+                            select_true_num += 1
+                    except KeyError:
+                        print("\033[0;30;46m WHY Info: sample passages is:\n {} \033[0m ".format(sample['passages']))
                 #-----------------------------------------------------------------
 
                 
