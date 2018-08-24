@@ -48,6 +48,10 @@ def parse_args():
                                 help='train epochs')
     train_settings.add_argument('--use_pre_train', type=bool, default=True,
                                 help='use pre_train vec')
+    # [WHY edit] add continue training.
+    train_settings.add_argument('--pretrain_model_path', default='',
+                                help='input the path of pretrianed model to continue train.')
+
 
     model_settings = parser.add_argument_group('model settings')
     model_settings.add_argument('--algo', choices=['BIDAF', 'MLSTM'], default='BIDAF',
