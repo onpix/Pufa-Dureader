@@ -2,8 +2,8 @@
 # 
 # File Name : rouge.py
 #
-# Description : Computes ROUGE-L metric as described by Lin and Hovey (2004)
-#
+# Description : Computes  metric as described by Lin and Hovey (2004)
+#ROUGE-L
 # Creation Date : 2015-01-07 06:03
 # Author : Ramakrishna Vedantam <vrama91@vt.edu>
 
