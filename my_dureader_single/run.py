@@ -186,7 +186,7 @@ def predict(args):
                           test_files=args.test_files)
     brc_data.convert_to_ids(vocab)
     rc_model = RCModel(vocab, args)
-    rc_model.restore(model_dir=args.model_dir, model_prefix=args.algo)
+    rc_model.restore(model_dir=args.model_dir, model_prefix=args.algo + '_{}'.format(args.epochs))
     test_batches = brc_data.gen_mini_batches('test', args.batch_size,
                                              pad_id=vocab.get_id(vocab.pad_token), shuffle=False)
     rc_model.evaluate(test_batches,
@@ -202,12 +202,12 @@ def run():
                         filemode='a+',
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
-    prepare(args)
-    print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
-    train(args)
-    print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
-    evaluate(args)
-    print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
+    # prepare(args)
+    # print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
+    # train(args)
+    # print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
+    # evaluate(args)
+    # print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
     predict(args)
     print("\033[0;30;46m WHY Info: Test data predict complete. Everything done. \033[0m ")
 
