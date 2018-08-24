@@ -1,8 +1,6 @@
 - transfer learning of BIDAF
 - try Match-LSTM
 - bagging & boosting
-- edit output file 
-- predicted details 
 - build QAnet
 
 
@@ -12,6 +10,8 @@ score log:
 -   discription: all_data -> BIDAF, 
     yes-no: yesno -> BIDAF
     entity: entity -> BIDAF 
+    All param default.
+    
     SCORE: 7.2
 
 -  yes-no: yes-no data->BIDAF, delete `。`: Runtime error.
