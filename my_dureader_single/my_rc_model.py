@@ -311,7 +311,7 @@ class RCModel(object):
                 best_answer, best_p_idx = self.find_best_answer(sample, start_prob, end_prob)
 
                 # [why] added by WHY, 2018.8.22, to solve KeyError in prediction.
-                MODE = 'predict'
+                MODE = 'train'
                 if MODE == 'predict':
                     pass 
                 else:
