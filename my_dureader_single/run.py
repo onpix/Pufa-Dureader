@@ -186,11 +186,12 @@ def predict(args):
                           test_files=args.test_files)
     brc_data.convert_to_ids(vocab)
     rc_model = RCModel(vocab, args)
+    model_name = args.algo + '_{}'.format(args.epochs)
     rc_model.restore(model_dir=args.model_dir, model_prefix=args.algo + '_{}'.format(args.epochs))
     test_batches = brc_data.gen_mini_batches('test', args.batch_size,
                                              pad_id=vocab.get_id(vocab.pad_token), shuffle=False)
     rc_model.evaluate(test_batches,
-                      result_dir=args.result_dir, result_prefix='test.predicted')
+                      result_dir=args.result_dir, result_prefix='test.predicted.' + model_name)
 
 
 def run():
