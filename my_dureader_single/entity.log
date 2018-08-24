@@ -1,0 +1,197 @@
+add train_file
+vocab size is  8543
+after filtered vocab size is  5390
+over_map word num is  4439
+[0;30;46m WHY Info: Prepare complete. [0m 
+add train_file
+add dev_file
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:85: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_p.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:86: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_q.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:87: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:88: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:41: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:42: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:43: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.out_l.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:44: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_mask.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:45: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:225: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.V.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:226: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_a.weight.data, gain=1)
+/disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:229: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.v.data, mean=0, std=0.05)
+total number of parameters: 4711352
+number of trainable parameters: 4711352
+Training the model for epoch 1
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:221: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  total_loss += loss.data[0]
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:222: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  n_batch_loss += loss.data[0]
+Average loss from batch 1 to 50 is 5.769871234893799
+Average loss from batch 51 to 100 is 5.067180156707764
+Average train loss for epoch 1 is 5.280545711517334
+Evaluating the model after epoch 1
+[0;30;46m WHY Info: result_dir is: None. [0m 
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:291: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  p = Variable(torch.LongTensor(batch['passage_token_ids']), volatile=True).cuda()
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:293: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  q = Variable(torch.LongTensor(batch['question_token_ids']), volatile=True).cuda()
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:295: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  start_label = Variable(torch.LongTensor(batch['start_id']), volatile=True).cuda()
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:416: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  if prob.data[0] > max_prob:
+/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:419: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  max_prob = prob.data[0]
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+/home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/fromnumeric.py:2957: RuntimeWarning: Mean of empty slice.
+  out=out, **kwargs)
+/home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/_methods.py:80: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_1.
+Training the model for epoch 2
+Average loss from batch 1 to 50 is 3.7093892097473145
+Average loss from batch 51 to 100 is 3.45003604888916
+Average train loss for epoch 2 is 3.51425838470459
+Evaluating the model after epoch 2
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_2.
+Training the model for epoch 3
+Average loss from batch 1 to 50 is 2.6066370010375977
+Average loss from batch 51 to 100 is 2.4315359592437744
+Average train loss for epoch 3 is 2.515702962875366
+Evaluating the model after epoch 3
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_3.
+Training the model for epoch 4
+Average loss from batch 1 to 50 is 1.8248904943466187
+Average loss from batch 51 to 100 is 1.913025975227356
+Average train loss for epoch 4 is 1.8880451917648315
+Evaluating the model after epoch 4
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_4.
+Training the model for epoch 5
+Average loss from batch 1 to 50 is 1.3001728057861328
+Average loss from batch 51 to 100 is 1.3967324495315552
+Average train loss for epoch 5 is 1.395792841911316
+Evaluating the model after epoch 5
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_5.
+Training the model for epoch 6
+Average loss from batch 1 to 50 is 1.038861632347107
+Average loss from batch 51 to 100 is 1.199652075767517
+Average train loss for epoch 6 is 1.1080386638641357
+Evaluating the model after epoch 6
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_6.
+Training the model for epoch 7
+Average loss from batch 1 to 50 is 0.8309548497200012
+Average loss from batch 51 to 100 is 0.9251266121864319
+Average train loss for epoch 7 is 0.8893747329711914
+Evaluating the model after epoch 7
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_7.
+Training the model for epoch 8
+Average loss from batch 1 to 50 is 0.6778183579444885
+Average loss from batch 51 to 100 is 0.6897283792495728
+Average train loss for epoch 8 is 0.7007495164871216
+Evaluating the model after epoch 8
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_8.
+Training the model for epoch 9
+Average loss from batch 1 to 50 is 0.5387715697288513
+Average loss from batch 51 to 100 is 0.6392890810966492
+Average train loss for epoch 9 is 0.6253176927566528
+Evaluating the model after epoch 9
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_9.
+Training the model for epoch 10
+Average loss from batch 1 to 50 is 0.4451430141925812
+Average loss from batch 51 to 100 is 0.40268808603286743
+Average train loss for epoch 10 is 0.4568521976470947
+Evaluating the model after epoch 10
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+Dev eval result: {'Bleu-4': 0.0, 'Bleu-2': 0.0, 'Bleu-1': 0.0, 'Bleu-3': 0.0, 'Rouge-L': nan}
+Model saved in ../data/models_search_pretrain/entity, with prefix BIDAF_10.
+[0;30;46m WHY Info: Data train complete. [0m 
+add dev_file
+total number of parameters: 4711352
+number of trainable parameters: 4711352
+Model restored from ../data/models_search_pretrain/entity, with prefix BIDAF_7
+[0;30;46m WHY Info: result_dir is: None. [0m 
+{'testlen': 0, 'reflen': 0, 'correct': [0, 0, 0, 0], 'guess': [0, 0, 0, 0]}
+ratio: 1e-06
+correct selected passage num is 0 in 332
+correct passage num is 0 in 332
+[0;30;46m WHY Info: Dev data evaluate complete. [0m 
+add test_file
+total number of parameters: 4711352
+number of trainable parameters: 4711352
+Traceback (most recent call last):
+  File "run.py", line 216, in <module>
+    run()
+  File "run.py", line 211, in run
+    predict(args)
+  File "run.py", line 189, in predict
+    rc_model.restore(model_dir=args.model_dir, model_prefix=args.algo)
+  File "/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py", line 433, in restore
+    self.model.load_state_dict(torch.load(os.path.join(model_dir, model_prefix)))
+  File "/home/dian/.virtualenvs/ml/lib/python3.5/site-packages/torch/serialization.py", line 301, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '../data/models_search_pretrain/entity/BIDAF'
