@@ -313,7 +313,7 @@ class RCModel(object):
                 best_answer, best_p_idx = self.find_best_answer(sample, start_prob, end_prob)
 
                 # [why] added by WHY, 2018.8.22, to solve KeyError in prediction.
-                MODE = 'train'
+                MODE = 'predict'
                 if MODE == 'predict':
                     pass 
                 else:
@@ -326,6 +326,7 @@ class RCModel(object):
                             select_true_num += 1
                     except KeyError:
                         print("\033[0;30;46m WHY Info: sample passages is:\n {} \033[0m ".format(sample['passages']))
+                        continue
                 #-----------------------------------------------------------------
 
                 
