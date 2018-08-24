@@ -279,6 +279,7 @@ class RCModel(object):
                            answers will not be saved if None
             save_full_info: if True, the pred_answers will be added to raw sample and saved
         """
+        print("\033[0;30;46m WHY Info: result_dir is: {}. \033[0m ".format(result_dir))
         pred_answers, ref_answers = [], []
         total_num, num_of_batch, correct_p_num, select_total_num, select_true_num = 0, 0, 0, 0, 0
         self.model.eval()
