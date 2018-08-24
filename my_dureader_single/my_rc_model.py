@@ -284,7 +284,7 @@ class RCModel(object):
         total_num, num_of_batch, correct_p_num, select_total_num, select_true_num = 0, 0, 0, 0, 0
         self.model.eval()
         for b_itx, batch in enumerate(eval_batches):
-            print("[debug] in func eval")
+            # print("[debug] in func eval")
             num_of_batch += 1
             # print("now is batch: ", b_itx)
             # batch_size * max_passage_num x padded_p_len
