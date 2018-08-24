@@ -1,0 +1,1 @@
+nohup python -u run.py --model_dir ../data/models_search_pretrain/yesno --vocab_dir ../data/vocab_search_pretrain/yesno --result_dir ../data/results_demo/yesno --test_files ../data/yesno/data_test_preprocessed.json --dev_files ../data/yesno/data_dev_preprocessed.json --train_files ../data/yesno/data_train_preprocessed.json  > entity.log 2>&1 &
