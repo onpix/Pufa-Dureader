@@ -24,6 +24,7 @@ from dataset import BRCDataset
 from vocab import Vocab
 from my_rc_model import RCModel
 import logging
+import torch
 
 
 def parse_args():
@@ -48,9 +49,6 @@ def parse_args():
                                 help='train epochs')
     train_settings.add_argument('--use_pre_train', type=bool, default=True,
                                 help='use pre_train vec')
-    # [WHY edit] add continue training.
-    train_settings.add_argument('--pretrain_model_path', default='',
-                                help='input the path of pretrianed model to continue train.')
 
 
     model_settings = parser.add_argument_group('model settings')
@@ -68,6 +66,11 @@ def parse_args():
                                 help='max length of question')
     model_settings.add_argument('--max_a_len', type=int, default=200,
                                 help='max length of answer')
+    # [WHY edit] add continue training.
+    # '../data/models_search_pretrain/BIDAF_10'
+    train_settings.add_argument('--pretrain_model_path', default=False,
+                                help='input the path of pretrianed model to continue train.')
+
 
     path_settings = parser.add_argument_group('path settings')
     path_settings.add_argument('--train_files', nargs='+',
@@ -147,6 +150,8 @@ def train(args):
                           args.train_files, args.dev_files)
     brc_data.convert_to_ids(vocab)
     rc_model = RCModel(vocab, args)
+    if args.pretrain_model_path:
+        rc_model.load_state_dict(torch.load(args.pretrain_model_path))
     rc_model.train(brc_data, args.epochs, args.batch_size, save_dir=args.model_dir,
                    save_prefix=args.algo)
 

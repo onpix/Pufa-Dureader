@@ -1,2 +1,4 @@
 *.vec
 *.bz2
+BIDAF*
+MLSTM*
