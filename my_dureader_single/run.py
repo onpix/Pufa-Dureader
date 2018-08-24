@@ -25,7 +25,7 @@ from vocab import Vocab
 from my_rc_model import RCModel
 import logging
 import torch
-
+import datetime
 
 def parse_args():
     """
@@ -198,6 +198,8 @@ def run():
     """
     Prepares and runs the whole system.
     """
+    time1 = datetime.datetime.now()
+    print('[START TIME] ',time1 )
     logging.basicConfig(level=logging.DEBUG,
                         filename='./LSTM.log',
                         filemode='a+',
@@ -211,6 +213,8 @@ def run():
     print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
     predict(args)
     print("\033[0;30;46m WHY Info: Test data predict complete. Everything done. \033[0m ")
+    time2 = datetime.datetime.now()
+    print('[END TIME] ', time2, '\n[TOTAL USE] ', (time2-time1).second/60, 'min')
 
 
 if __name__ == '__main__':
