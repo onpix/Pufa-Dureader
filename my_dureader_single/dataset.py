@@ -60,7 +60,7 @@ class BRCDataset(object):
             data_set = []
             for lidx, line in enumerate(fin):
                 sample = json.loads(line.strip())
-                if 'answer_spans' in sample.keys():
+                if 'answer_spans' in sample:
                     if train:
                         if len(sample['answer_spans']) == 0:
                             continue
