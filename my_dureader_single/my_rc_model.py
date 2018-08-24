@@ -249,7 +249,9 @@ class RCModel(object):
             print('Average train loss for epoch {} is {}'.format(epoch, train_loss))
 
             if evaluate:
-                print('Evaluating the model after epoch {}'.format(epoch))
+                # print('Evaluating the model after epoch {}'.format(epoch))
+                # [why edit] add beautiful info 
+                print("\033[0;30;46m Evaluating the model after epoch {}. \033[0m ".format(epoch))
                 if data.dev_set is not None:
                     eval_batches = data.gen_mini_batches('dev', batch_size, pad_id, shuffle=False, dev=True)
                     bleu_rouge = self.evaluate(eval_batches)
@@ -288,11 +290,22 @@ class RCModel(object):
             num_of_batch += 1
             # print("now is batch: ", b_itx)
             # batch_size * max_passage_num x padded_p_len
-            p = Variable(torch.LongTensor(batch['passage_token_ids']), volatile=True).cuda()
+
+            # -------------------------------------------
+            # [why edit] update code version to torch 0.4
+            # p = Variable(torch.LongTensor(batch['passage_token_ids']), volatile=True).cuda()
+            p = Variable(torch.LongTensor(batch['passage_token_ids']), requires_grad=False).cuda()
+            
             # batch_size * max_passage_num x padded_q_len
-            q = Variable(torch.LongTensor(batch['question_token_ids']), volatile=True).cuda()
+            # q = Variable(torch.LongTensor(batch['question_token_ids']), volatile=True).cuda()
             # batch_size
-            start_label = Variable(torch.LongTensor(batch['start_id']), volatile=True).cuda()
+            # [why edit] update code version to torch 0.4
+            q = Variable(torch.LongTensor(batch['question_token_ids']), requires_grad=False).cuda()
+            # start_label = Variable(torch.LongTensor(batch['start_id']), volatile=True).cuda()
+            start_label = Variable(torch.LongTensor(batch['start_id']), requires_grad=False).cuda()
+            # ---------------------------------------------
+
+
             # batch_size
             # end_label = Variable(torch.LongTensor(batch['end_id']), volatile=True).cuda()
             # batch_size * max_passage_num x padded_p_len x 2
@@ -413,10 +426,15 @@ class RCModel(object):
                 # print(prob.data[0])
                 # print("max_prob is ")
                 # print(max_prob)
-                if prob.data[0] > max_prob:
+
+                # -----------------------------------
+                # [why edit] change 0-dim warning.
+                why_prob = prob.data[0]
+                why_prob = prob.item()
+                if why_prob > max_prob:
                     best_start = start_idx
                     best_end = end_idx
-                    max_prob = prob.data[0]
+                    max_prob = why_prob
         return (best_start, best_end), max_prob
 
     def save(self, model_dir, model_prefix):

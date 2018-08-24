@@ -1,3 +1,5 @@
+# [why edit] change all `nn.init.xavier_uniform` to `nn.init.xavier_uniform_` to solve Warning.
+
 import torch
 import numpy as np
 import torch.nn.functional as F
@@ -38,10 +40,10 @@ class AttentionPooling(torch.nn.Module):
         self.init_weights()
 
     def init_weights(self):
-        torch.nn.init.xavier_uniform(self.W.weight.data, gain=1)
-        torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
-        torch.nn.init.xavier_uniform(self.out_l.weight.data, gain=1)
-        torch.nn.init.xavier_uniform(self.W_mask.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W_r.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.out_l.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W_mask.weight.data, gain=1)
         torch.nn.init.normal(self.w.data, mean=0, std=0.05)
 
     def forward(self, no_dup_q_encode, q_mask):
@@ -82,9 +84,9 @@ class MatchLSTMAttention(torch.nn.Module):
         self.init_weights()
 
     def init_weights(self):
-        torch.nn.init.xavier_uniform(self.W_p.weight.data, gain=1)
-        torch.nn.init.xavier_uniform(self.W_q.weight.data, gain=1)
-        torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W_p.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W_q.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W_r.weight.data, gain=1)
         torch.nn.init.normal(self.w.data, mean=0, std=0.05)
         self.match_b.data.fill_(1.0)
 
@@ -222,8 +224,8 @@ class BoundaryDecoderAttention(torch.nn.Module):
         self.init_weights()
 
     def init_weights(self):
-        torch.nn.init.xavier_uniform(self.V.weight.data, gain=1)
-        torch.nn.init.xavier_uniform(self.W_a.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.V.weight.data, gain=1)
+        torch.nn.init.xavier_uniform_(self.W_a.weight.data, gain=1)
         self.V.bias.data.fill_(0)
         self.W_a.bias.data.fill_(0)
         torch.nn.init.normal(self.v.data, mean=0, std=0.05)
