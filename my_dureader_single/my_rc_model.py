@@ -315,7 +315,6 @@ class RCModel(object):
                 if MODE == 'predict':
                     pass 
                 else:
-
                     if 'answer_passages' in sample.keys():
                         if best_p_idx in sample['answer_passages']:
                             correct_p_num += 1
@@ -323,6 +322,8 @@ class RCModel(object):
                     if sample['passages'][best_p_idx]['is_selected']:
                         select_true_num += 1
                 #-----------------------------------------------------------------
+
+                
                 if save_full_info:
                     sample['pred_answers'] = [best_answer]
                     pred_answers.append(sample)
