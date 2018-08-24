@@ -3,3 +3,4 @@
 BIDAF*
 MLSTM*
 *.pyc
+__pycache__
