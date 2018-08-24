@@ -1,10 +1,4 @@
-add train_file
-vocab size is  1239
-after filtered vocab size is  669
-over_map word num is  584
-[0;30;46m WHY Info: Prepare complete. [0m 
-add train_file
-add dev_file
+add test_file
 /disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:85: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
   torch.nn.init.xavier_uniform(self.W_p.weight.data, gain=1)
 /disk/Pufa-Dureader/my_dureader_single/layers/eric_temp_layers.py:86: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
@@ -31,14 +25,8 @@ add dev_file
   torch.nn.init.normal(self.v.data, mean=0, std=0.05)
 total number of parameters: 3295052
 number of trainable parameters: 3295052
-Training the model for epoch 1
-/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:221: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
-  total_loss += loss.data[0]
-/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:222: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
-  n_batch_loss += loss.data[0]
-Average train loss for epoch 1 is 6.673591613769531
-Evaluating the model after epoch 1
-[0;30;46m WHY Info: result_dir is: None. [0m 
+Model restored from ../data/models_search_pretrain/yesno, with prefix BIDAF_10
+[0;30;46m WHY Info: result_dir is: ../data/results_demo/yesno. [0m 
 /disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:291: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
   p = Variable(torch.LongTensor(batch['passage_token_ids']), volatile=True).cuda()
 /disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:293: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
@@ -49,129 +37,13 @@ Evaluating the model after epoch 1
   if prob.data[0] > max_prob:
 /disk/Pufa-Dureader/my_dureader_single/my_rc_model.py:419: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
   max_prob = prob.data[0]
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
+Saving test.predicted results to ../data/results_demo/yesno/test.predicted.json
+{'guess': [0, 0, 0, 0], 'correct': [0, 0, 0, 0], 'reflen': 0, 'testlen': 0}
 ratio: 1e-06
 /home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/fromnumeric.py:2957: RuntimeWarning: Mean of empty slice.
   out=out, **kwargs)
 /home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/_methods.py:80: RuntimeWarning: invalid value encountered in double_scalars
   ret = ret.dtype.type(ret / rcount)
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_1.
-Training the model for epoch 2
-Average train loss for epoch 2 is 6.412658214569092
-Evaluating the model after epoch 2
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_2.
-Training the model for epoch 3
-Average train loss for epoch 3 is 4.87083101272583
-Evaluating the model after epoch 3
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_3.
-Training the model for epoch 4
-Average train loss for epoch 4 is 3.6569154262542725
-Evaluating the model after epoch 4
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_4.
-Training the model for epoch 5
-Average train loss for epoch 5 is 3.16355562210083
-Evaluating the model after epoch 5
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_5.
-Training the model for epoch 6
-Average train loss for epoch 6 is 2.6392295360565186
-Evaluating the model after epoch 6
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_6.
-Training the model for epoch 7
-Average train loss for epoch 7 is 2.5386054515838623
-Evaluating the model after epoch 7
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_7.
-Training the model for epoch 8
-Average train loss for epoch 8 is 2.1155426502227783
-Evaluating the model after epoch 8
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_8.
-Training the model for epoch 9
-Average train loss for epoch 9 is 1.752573847770691
-Evaluating the model after epoch 9
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_9.
-Training the model for epoch 10
-Average train loss for epoch 10 is 1.575777292251587
-Evaluating the model after epoch 10
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-Dev eval result: {'Rouge-L': nan, 'Bleu-4': 0.0, 'Bleu-3': 0.0, 'Bleu-1': 0.0, 'Bleu-2': 0.0}
-Model saved in ../data/models_search_pretrain/yesno, with prefix BIDAF_10.
-[0;30;46m WHY Info: Data train complete. [0m 
-add dev_file
-total number of parameters: 3295052
-number of trainable parameters: 3295052
-Model restored from ../data/models_search_pretrain/yesno, with prefix BIDAF_7
-[0;30;46m WHY Info: result_dir is: None. [0m 
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'guess': [0, 0, 0, 0], 'testlen': 0}
-ratio: 1e-06
-correct selected passage num is 0 in 208
-correct passage num is 0 in 208
-[0;30;46m WHY Info: Dev data evaluate complete. [0m 
-add test_file
-total number of parameters: 3295052
-number of trainable parameters: 3295052
-Traceback (most recent call last):
-  File "run.py", line 216, in <module>
-    run()
-  File "run.py", line 211, in run
-    predict(args)
-  File "run.py", line 189, in predict
-    rc_model.restore(model_dir=args.model_dir, model_prefix=args.algo)
-  File "/disk/Pufa-Dureader/my_dureader_single/my_rc_model.py", line 433, in restore
-    self.model.load_state_dict(torch.load(os.path.join(model_dir, model_prefix)))
-  File "/home/dian/.virtualenvs/ml/lib/python3.5/site-packages/torch/serialization.py", line 301, in load
-    f = open(f, 'rb')
-FileNotFoundError: [Errno 2] No such file or directory: '../data/models_search_pretrain/yesno/BIDAF'
+correct selected passage num is 0 in 358
+correct passage num is 0 in 358
+[0;30;46m WHY Info: Test data predict complete. Everything done. [0m 
