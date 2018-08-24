@@ -218,8 +218,14 @@ class RCModel(object):
             # batch_size
             total_prob = -(answer_begin_prob + answer_end_prob)
             loss = torch.mean(total_prob)
-            total_loss += loss.data[0]
-            n_batch_loss += loss.data[0]
+            
+            # --------------------------------------
+            # [why edit] to solve 0-dim Warning.
+            #why_loss = loss.data[0]
+            why_loss = loss.item()
+            
+            total_loss += why_loss
+            n_batch_loss += why_loss
             if log_every_n_batch > 0 and bitx % log_every_n_batch == 0:
                 print('Average loss from batch {} to {} is {}'.format(
                     bitx - log_every_n_batch + 1, bitx, n_batch_loss / log_every_n_batch))
@@ -429,7 +435,7 @@ class RCModel(object):
 
                 # -----------------------------------
                 # [why edit] change 0-dim warning.
-                why_prob = prob.data[0]
+                # why_prob = prob.data[0]
                 why_prob = prob.item()
                 if why_prob > max_prob:
                     best_start = start_idx

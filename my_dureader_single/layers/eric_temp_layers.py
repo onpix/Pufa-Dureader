@@ -1,4 +1,5 @@
 # [why edit] change all `nn.init.xavier_uniform` to `nn.init.xavier_uniform_` to solve Warning.
+# [whhy edit] change ` nn.init.normal` to ` nn.init.normal_` 
 
 import torch
 import numpy as np
@@ -44,7 +45,7 @@ class AttentionPooling(torch.nn.Module):
         torch.nn.init.xavier_uniform_(self.W_r.weight.data, gain=1)
         torch.nn.init.xavier_uniform_(self.out_l.weight.data, gain=1)
         torch.nn.init.xavier_uniform_(self.W_mask.weight.data, gain=1)
-        torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+        torch.nn.init.normal_(self.w.data, mean=0, std=0.05)
 
     def forward(self, no_dup_q_encode, q_mask):
         G_q = self.W(no_dup_q_encode)  # batch_size x padded_q_len x output_dim
@@ -87,7 +88,7 @@ class MatchLSTMAttention(torch.nn.Module):
         torch.nn.init.xavier_uniform_(self.W_p.weight.data, gain=1)
         torch.nn.init.xavier_uniform_(self.W_q.weight.data, gain=1)
         torch.nn.init.xavier_uniform_(self.W_r.weight.data, gain=1)
-        torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+        torch.nn.init.normal_(self.w.data, mean=0, std=0.05)
         self.match_b.data.fill_(1.0)
 
     def forward(self, input_p, input_q, mask_q, h_tm1):
@@ -228,7 +229,7 @@ class BoundaryDecoderAttention(torch.nn.Module):
         torch.nn.init.xavier_uniform_(self.W_a.weight.data, gain=1)
         self.V.bias.data.fill_(0)
         self.W_a.bias.data.fill_(0)
-        torch.nn.init.normal(self.v.data, mean=0, std=0.05)
+        torch.nn.init.normal_(self.v.data, mean=0, std=0.05)
         self.c.data.fill_(1.0)
 
     def forward(self, H_r, mask_r, h_tm1):
