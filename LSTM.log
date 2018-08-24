@@ -1,0 +1,818 @@
+nohup: ignoring input
+add train_file
+add dev_file
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:85: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_p.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:86: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_q.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:87: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:88: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:41: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:42: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:43: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.out_l.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:44: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_mask.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:45: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:225: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.V.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:226: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_a.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:229: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.v.data, mean=0, std=0.05)
+total number of parameters: 92881052
+number of trainable parameters: 92881052
+Training the model for epoch 1
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:221: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  total_loss += loss.data[0]
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:222: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  n_batch_loss += loss.data[0]
+Average loss from batch 1 to 50 is 6.557612895965576
+Average loss from batch 51 to 100 is 6.192162990570068
+Average loss from batch 101 to 150 is 5.460870742797852
+Average loss from batch 151 to 200 is 5.409653186798096
+Average loss from batch 201 to 250 is 5.275599956512451
+Average loss from batch 251 to 300 is 5.205690383911133
+Average loss from batch 301 to 350 is 5.09993839263916
+Average loss from batch 351 to 400 is 5.213038921356201
+Average loss from batch 401 to 450 is 5.325448036193848
+Average loss from batch 451 to 500 is 5.144722938537598
+Average loss from batch 501 to 550 is 5.224919319152832
+Average loss from batch 551 to 600 is 5.138851642608643
+Average loss from batch 601 to 650 is 5.155527114868164
+Average loss from batch 651 to 700 is 4.8992018699646
+Average loss from batch 701 to 750 is 4.904648303985596
+Average loss from batch 751 to 800 is 4.746004581451416
+Average loss from batch 801 to 850 is 4.837857723236084
+Average loss from batch 851 to 900 is 4.747673988342285
+Average loss from batch 901 to 950 is 4.671201229095459
+Average loss from batch 951 to 1000 is 4.802949905395508
+Average loss from batch 1001 to 1050 is 4.836310386657715
+Average loss from batch 1051 to 1100 is 4.662990093231201
+Average loss from batch 1101 to 1150 is 4.651436805725098
+Average loss from batch 1151 to 1200 is 4.630556106567383
+Average loss from batch 1201 to 1250 is 4.366730213165283
+Average loss from batch 1251 to 1300 is 4.5440545082092285
+Average loss from batch 1301 to 1350 is 4.57618522644043
+Average loss from batch 1351 to 1400 is 4.672285079956055
+Average loss from batch 1401 to 1450 is 4.592739582061768
+Average loss from batch 1451 to 1500 is 4.532447338104248
+Average loss from batch 1501 to 1550 is 4.4427337646484375
+Average loss from batch 1551 to 1600 is 4.544933319091797
+Average loss from batch 1601 to 1650 is 4.461089611053467
+Average loss from batch 1651 to 1700 is 4.709479331970215
+Average loss from batch 1701 to 1750 is 4.385374546051025
+Average loss from batch 1751 to 1800 is 4.403279781341553
+Average loss from batch 1801 to 1850 is 4.587958812713623
+Average loss from batch 1851 to 1900 is 4.40601921081543
+Average loss from batch 1901 to 1950 is 4.599586009979248
+Average loss from batch 1951 to 2000 is 4.634300231933594
+Average loss from batch 2001 to 2050 is 4.382389545440674
+Average loss from batch 2051 to 2100 is 4.324219703674316
+Average loss from batch 2101 to 2150 is 4.574687480926514
+Average loss from batch 2151 to 2200 is 4.325924396514893
+Average loss from batch 2201 to 2250 is 4.387202262878418
+Average loss from batch 2251 to 2300 is 4.452646255493164
+Average loss from batch 2301 to 2350 is 4.570696830749512
+Average loss from batch 2351 to 2400 is 4.4427103996276855
+Average loss from batch 2401 to 2450 is 4.6901044845581055
+Average loss from batch 2451 to 2500 is 4.289000988006592
+Average loss from batch 2501 to 2550 is 4.6472487449646
+Average loss from batch 2551 to 2600 is 4.2173590660095215
+Average loss from batch 2601 to 2650 is 4.383130073547363
+Average loss from batch 2651 to 2700 is 4.518709182739258
+Average loss from batch 2701 to 2750 is 4.555209159851074
+Average loss from batch 2751 to 2800 is 4.604866981506348
+Average loss from batch 2801 to 2850 is 4.4025983810424805
+Average loss from batch 2851 to 2900 is 4.502352237701416
+Average loss from batch 2901 to 2950 is 4.169146537780762
+Average loss from batch 2951 to 3000 is 4.489850044250488
+Average loss from batch 3001 to 3050 is 4.195669174194336
+Average loss from batch 3051 to 3100 is 4.450697422027588
+Average loss from batch 3101 to 3150 is 4.556846618652344
+Average loss from batch 3151 to 3200 is 4.43333101272583
+Average loss from batch 3201 to 3250 is 4.681550025939941
+Average loss from batch 3251 to 3300 is 4.4482831954956055
+Average loss from batch 3301 to 3350 is 4.219101905822754
+Average loss from batch 3351 to 3400 is 4.540048599243164
+Average loss from batch 3401 to 3450 is 4.371982574462891
+Average loss from batch 3451 to 3500 is 4.508762836456299
+Average loss from batch 3501 to 3550 is 4.412029266357422
+Average loss from batch 3551 to 3600 is 4.332642555236816
+Average loss from batch 3601 to 3650 is 4.267662048339844
+Average loss from batch 3651 to 3700 is 4.332828998565674
+Average loss from batch 3701 to 3750 is 4.460818767547607
+Average loss from batch 3751 to 3800 is 4.3171515464782715
+Average loss from batch 3801 to 3850 is 4.280029296875
+Average loss from batch 3851 to 3900 is 4.378301620483398
+Average loss from batch 3901 to 3950 is 4.284085273742676
+Average loss from batch 3951 to 4000 is 4.430362701416016
+Average loss from batch 4001 to 4050 is 4.422824859619141
+Average loss from batch 4051 to 4100 is 4.519918918609619
+Average loss from batch 4101 to 4150 is 4.307665824890137
+Average loss from batch 4151 to 4200 is 4.3739423751831055
+Average loss from batch 4201 to 4250 is 4.194456577301025
+Average loss from batch 4251 to 4300 is 4.513028144836426
+Average loss from batch 4301 to 4350 is 4.327151775360107
+Average loss from batch 4351 to 4400 is 4.156271934509277
+Average loss from batch 4401 to 4450 is 4.418693542480469
+Average loss from batch 4451 to 4500 is 4.199343681335449
+Average loss from batch 4501 to 4550 is 4.462654113769531
+Average loss from batch 4551 to 4600 is 4.31647253036499
+Average loss from batch 4601 to 4650 is 4.425804615020752
+Average loss from batch 4651 to 4700 is 4.282530307769775
+Average loss from batch 4701 to 4750 is 4.121376991271973
+Average loss from batch 4751 to 4800 is 4.4348673820495605
+Average loss from batch 4801 to 4850 is 4.430499076843262
+Average loss from batch 4851 to 4900 is 4.21281623840332
+Average loss from batch 4901 to 4950 is 4.432832717895508
+Average loss from batch 4951 to 5000 is 4.304331302642822
+Average loss from batch 5001 to 5050 is 4.194427013397217
+Average loss from batch 5051 to 5100 is 4.241269111633301
+Average loss from batch 5101 to 5150 is 4.220248699188232
+Average loss from batch 5151 to 5200 is 4.331031799316406
+Average loss from batch 5201 to 5250 is 4.363808631896973
+Average loss from batch 5251 to 5300 is 4.039662837982178
+Average loss from batch 5301 to 5350 is 4.191523551940918
+Average loss from batch 5351 to 5400 is 4.313889503479004
+Average loss from batch 5401 to 5450 is 4.191414833068848
+Average loss from batch 5451 to 5500 is 4.3938703536987305
+Average loss from batch 5501 to 5550 is 4.422080039978027
+Average loss from batch 5551 to 5600 is 4.2590250968933105
+Average loss from batch 5601 to 5650 is 4.190448760986328
+Average loss from batch 5651 to 5700 is 4.279473304748535
+Average loss from batch 5701 to 5750 is 4.433321952819824
+Average loss from batch 5751 to 5800 is 4.053203582763672
+Average loss from batch 5801 to 5850 is 4.531455993652344
+Average loss from batch 5851 to 5900 is 4.164161682128906
+Average loss from batch 5901 to 5950 is 4.309404373168945
+Average loss from batch 5951 to 6000 is 4.29205846786499
+Average loss from batch 6001 to 6050 is 4.239222526550293
+Average loss from batch 6051 to 6100 is 4.143521785736084
+Average loss from batch 6101 to 6150 is 4.256653308868408
+Average loss from batch 6151 to 6200 is 4.261558532714844
+Average loss from batch 6201 to 6250 is 4.103892803192139
+Average loss from batch 6251 to 6300 is 4.19030237197876
+Average loss from batch 6301 to 6350 is 4.153903007507324
+Average loss from batch 6351 to 6400 is 4.203858375549316
+Average loss from batch 6401 to 6450 is 4.451830863952637
+Average loss from batch 6451 to 6500 is 4.1755499839782715
+Average loss from batch 6501 to 6550 is 4.378514766693115
+Average loss from batch 6551 to 6600 is 4.1756272315979
+Average loss from batch 6601 to 6650 is 4.078549385070801
+Average loss from batch 6651 to 6700 is 4.144752025604248
+Average loss from batch 6701 to 6750 is 4.0897932052612305
+Average loss from batch 6751 to 6800 is 4.2737135887146
+Average loss from batch 6801 to 6850 is 4.072908401489258
+Average loss from batch 6851 to 6900 is 4.151098728179932
+Average loss from batch 6901 to 6950 is 4.396021842956543
+Average loss from batch 6951 to 7000 is 4.530584812164307
+Average loss from batch 7001 to 7050 is 4.165314674377441
+Average loss from batch 7051 to 7100 is 4.246442794799805
+Average loss from batch 7101 to 7150 is 4.180371284484863
+Average loss from batch 7151 to 7200 is 4.219353675842285
+Average loss from batch 7201 to 7250 is 4.408221244812012
+Average loss from batch 7251 to 7300 is 4.128335475921631
+Average loss from batch 7301 to 7350 is 4.04350471496582
+Average loss from batch 7351 to 7400 is 4.278456211090088
+Average loss from batch 7401 to 7450 is 4.228695392608643
+Average loss from batch 7451 to 7500 is 4.292396545410156
+Average loss from batch 7501 to 7550 is 4.231588840484619
+Average loss from batch 7551 to 7600 is 4.277984142303467
+Average loss from batch 7601 to 7650 is 4.356008529663086
+Average loss from batch 7651 to 7700 is 4.10612154006958
+Average loss from batch 7701 to 7750 is 4.052846431732178
+Average loss from batch 7751 to 7800 is 4.149359703063965
+Average loss from batch 7801 to 7850 is 4.168707370758057
+Average loss from batch 7851 to 7900 is 4.215362548828125
+Average loss from batch 7901 to 7950 is 4.237019062042236
+Average loss from batch 7951 to 8000 is 4.177814960479736
+Average train loss for epoch 1 is 4.456140995025635
+Evaluating the model after epoch 1
+aaaaaaaaa
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:289: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  p = Variable(torch.LongTensor(batch['passage_token_ids']), volatile=True).cuda()
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:291: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  q = Variable(torch.LongTensor(batch['question_token_ids']), volatile=True).cuda()
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:293: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.
+  start_label = Variable(torch.LongTensor(batch['start_id']), volatile=True).cuda()
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:400: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  if prob.data[0] > max_prob:
+/home/brody/baiduReader/my_dureader_single/my_rc_model.py:403: UserWarning: invalid index of a 0-dim tensor. This will be an error in PyTorch 0.5. Use tensor.item() to convert a 0-dim tensor to a Python number
+  max_prob = prob.data[0]
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+{'testlen': 208409, 'reflen': 418258, 'guess': [208409, 203486, 198583, 193711], 'correct': [97581, 57163, 40965, 33207]}
+ratio: 0.49827857446838913
+correct selected passage num is 1981 in 5000
+correct passage num is 1074 in 5000
+Dev eval result: {'Bleu-1': 0.17106200544497493, 'Bleu-2': 0.13250107476930484, 'Bleu-3': 0.10978377311943505, 'Bleu-4': 0.09541104345588282, 'Rouge-L': 0.21670812875779205}
+Model saved in ../data/models_search_pretrain/, with prefix MLSTM_1.
+Training the model for epoch 2
+Average loss from batch 1 to 50 is 3.990874767303467
+Average loss from batch 51 to 100 is 4.145338535308838
+Average loss from batch 101 to 150 is 3.9785380363464355
+Average loss from batch 151 to 200 is 4.043916702270508
+Average loss from batch 201 to 250 is 3.975755453109741
+Average loss from batch 251 to 300 is 3.7891299724578857
+Average loss from batch 301 to 350 is 4.116918087005615
+Average loss from batch 351 to 400 is 4.005648136138916
+Average loss from batch 401 to 450 is 4.1529669761657715
+Average loss from batch 451 to 500 is 4.108408451080322
+Average loss from batch 501 to 550 is 4.214235305786133
+Average loss from batch 551 to 600 is 3.884420394897461
+Average loss from batch 601 to 650 is 3.9867215156555176
+Average loss from batch 651 to 700 is 4.078742980957031
+Average loss from batch 701 to 750 is 3.933894634246826
+Average loss from batch 751 to 800 is 3.77997088432312
+Average loss from batch 801 to 850 is 3.9387075901031494
+Average loss from batch 851 to 900 is 3.9937427043914795
+Average loss from batch 901 to 950 is 4.143242835998535
+Average loss from batch 951 to 1000 is 3.9603049755096436
+Average loss from batch 1001 to 1050 is 3.8844783306121826
+Average loss from batch 1051 to 1100 is 3.906158447265625
+Average loss from batch 1101 to 1150 is 4.062901020050049
+Average loss from batch 1151 to 1200 is 4.013797283172607
+Average loss from batch 1201 to 1250 is 3.6202261447906494
+Average loss from batch 1251 to 1300 is 4.126477241516113
+Average loss from batch 1301 to 1350 is 3.8723745346069336
+Average loss from batch 1351 to 1400 is 3.9135496616363525
+Average loss from batch 1401 to 1450 is 4.027207374572754
+Average loss from batch 1451 to 1500 is 4.018631458282471
+Average loss from batch 1501 to 1550 is 4.136075496673584
+Average loss from batch 1551 to 1600 is 4.020368576049805
+Average loss from batch 1601 to 1650 is 3.984248161315918
+Average loss from batch 1651 to 1700 is 3.758448362350464
+Average loss from batch 1701 to 1750 is 4.131080150604248
+Average loss from batch 1751 to 1800 is 4.034839153289795
+Average loss from batch 1801 to 1850 is 4.138964653015137
+Average loss from batch 1851 to 1900 is 3.820754289627075
+Average loss from batch 1901 to 1950 is 3.9979772567749023
+Average loss from batch 1951 to 2000 is 3.9268856048583984
+Average loss from batch 2001 to 2050 is 4.195827007293701
+Average loss from batch 2051 to 2100 is 4.144610404968262
+Average loss from batch 2101 to 2150 is 3.921496868133545
+Average loss from batch 2151 to 2200 is 3.9472603797912598
+Average loss from batch 2201 to 2250 is 3.884275436401367
+Average loss from batch 2251 to 2300 is 3.826735496520996
+Average loss from batch 2301 to 2350 is 3.91448974609375
+Average loss from batch 2351 to 2400 is 4.140929698944092
+Average loss from batch 2401 to 2450 is 3.9985766410827637
+Average loss from batch 2451 to 2500 is 3.7842652797698975
+Average loss from batch 2501 to 2550 is 4.021546363830566
+Average loss from batch 2551 to 2600 is 3.8204963207244873
+Average loss from batch 2601 to 2650 is 3.810537576675415
+Average loss from batch 2651 to 2700 is 4.231071472167969
+Average loss from batch 2701 to 2750 is 3.8458690643310547
+Average loss from batch 2751 to 2800 is 3.793217897415161
+Average loss from batch 2801 to 2850 is 4.060910224914551
+Average loss from batch 2851 to 2900 is 3.7512056827545166
+Average loss from batch 2901 to 2950 is 4.128681182861328
+Average loss from batch 2951 to 3000 is 4.139882564544678
+Average loss from batch 3001 to 3050 is 3.940477132797241
+Average loss from batch 3051 to 3100 is 3.99613356590271
+Average loss from batch 3101 to 3150 is 4.046998500823975
+Average loss from batch 3151 to 3200 is 3.97979736328125
+Average loss from batch 3201 to 3250 is 3.957124948501587
+Average loss from batch 3251 to 3300 is 4.014665603637695
+Average loss from batch 3301 to 3350 is 3.844731092453003
+Average loss from batch 3351 to 3400 is 4.110049724578857
+Average loss from batch 3401 to 3450 is 3.9738118648529053
+Average loss from batch 3451 to 3500 is 4.04641056060791
+Average loss from batch 3501 to 3550 is 3.903822183609009
+Average loss from batch 3551 to 3600 is 4.246190547943115
+Average loss from batch 3601 to 3650 is 3.9969704151153564
+Average loss from batch 3651 to 3700 is 4.024910926818848
+Average loss from batch 3701 to 3750 is 3.825312614440918
+Average loss from batch 3751 to 3800 is 4.054347515106201
+Average loss from batch 3801 to 3850 is 4.1103715896606445
+Average loss from batch 3851 to 3900 is 4.072579383850098
+Average loss from batch 3901 to 3950 is 4.036170482635498
+Average loss from batch 3951 to 4000 is 3.989539384841919
+Average loss from batch 4001 to 4050 is 4.005379676818848
+Average loss from batch 4051 to 4100 is 3.7742464542388916
+Average loss from batch 4101 to 4150 is 4.046203136444092
+Average loss from batch 4151 to 4200 is 3.822077751159668
+Average loss from batch 4201 to 4250 is 3.7579710483551025
+Average loss from batch 4251 to 4300 is 3.992565870285034
+Average loss from batch 4301 to 4350 is 3.9374501705169678
+Average loss from batch 4351 to 4400 is 4.2156596183776855
+Average loss from batch 4401 to 4450 is 4.084336757659912
+Average loss from batch 4451 to 4500 is 4.0121049880981445
+Average loss from batch 4501 to 4550 is 3.9807941913604736
+Average loss from batch 4551 to 4600 is 3.861879825592041
+Average loss from batch 4601 to 4650 is 4.064906120300293
+Average loss from batch 4651 to 4700 is 3.7806777954101562
+Average loss from batch 4701 to 4750 is 4.047287940979004
+Average loss from batch 4751 to 4800 is 3.8666436672210693
+Average loss from batch 4801 to 4850 is 3.9271392822265625
+Average loss from batch 4851 to 4900 is 4.176784038543701
+Average loss from batch 4901 to 4950 is 3.916425943374634
+Average loss from batch 4951 to 5000 is 4.090720176696777
+Average loss from batch 5001 to 5050 is 3.9989755153656006
+Average loss from batch 5051 to 5100 is 4.000898838043213
+Average loss from batch 5101 to 5150 is 3.8914928436279297
+Average loss from batch 5151 to 5200 is 4.049124717712402
+Average loss from batch 5201 to 5250 is 3.960468292236328
+Average loss from batch 5251 to 5300 is 4.08505392074585
+Average loss from batch 5301 to 5350 is 3.6802127361297607
+Average loss from batch 5351 to 5400 is 4.117896556854248
+Average loss from batch 5401 to 5450 is 3.956336259841919
+Average loss from batch 5451 to 5500 is 4.016406536102295
+Average loss from batch 5501 to 5550 is 4.138835906982422
+Average loss from batch 5551 to 5600 is 3.863304853439331
+Average loss from batch 5601 to 5650 is 3.798248529434204
+Average loss from batch 5651 to 5700 is 4.048835754394531
+Average loss from batch 5701 to 5750 is 4.047440052032471
+Average loss from batch 5751 to 5800 is 3.9736251831054688
+Average loss from batch 5801 to 5850 is 3.9547252655029297
+Average loss from batch 5851 to 5900 is 3.835092782974243
+Average loss from batch 5901 to 5950 is 4.168893814086914
+Average loss from batch 5951 to 6000 is 3.8833422660827637
+Average loss from batch 6001 to 6050 is 4.023007869720459
+Average loss from batch 6051 to 6100 is 4.018101692199707
+Average loss from batch 6101 to 6150 is 3.959550142288208
+Average loss from batch 6151 to 6200 is 4.162073135375977
+Average loss from batch 6201 to 6250 is 3.830019474029541
+Average loss from batch 6251 to 6300 is 4.233485698699951
+Average loss from batch 6301 to 6350 is 3.9916563034057617
+Average loss from batch 6351 to 6400 is 3.916166305541992
+Average loss from batch 6401 to 6450 is 4.122251033782959
+Average loss from batch 6451 to 6500 is 3.9503333568573
+Average loss from batch 6501 to 6550 is 3.8539135456085205
+Average loss from batch 6551 to 6600 is 3.76466965675354
+Average loss from batch 6601 to 6650 is 4.081460952758789
+Average loss from batch 6651 to 6700 is 3.8894267082214355
+Average loss from batch 6701 to 6750 is 3.9188334941864014
+Average loss from batch 6751 to 6800 is 3.968148946762085
+Average loss from batch 6801 to 6850 is 3.9463448524475098
+Average loss from batch 6851 to 6900 is 3.9258313179016113
+Average loss from batch 6901 to 6950 is 3.91182017326355
+Average loss from batch 6951 to 7000 is 3.9244155883789062
+Average loss from batch 7001 to 7050 is 4.123519420623779
+Average loss from batch 7051 to 7100 is 3.926180839538574
+Average loss from batch 7101 to 7150 is 3.932922840118408
+Average loss from batch 7151 to 7200 is 3.907724618911743
+Average loss from batch 7201 to 7250 is 4.036322116851807
+Average loss from batch 7251 to 7300 is 3.6435866355895996
+Average loss from batch 7301 to 7350 is 4.060705184936523
+Average loss from batch 7351 to 7400 is 4.0532450675964355
+Average loss from batch 7401 to 7450 is 3.9069948196411133
+Average loss from batch 7451 to 7500 is 3.848661184310913
+Average loss from batch 7501 to 7550 is 4.043678283691406
+Average loss from batch 7551 to 7600 is 3.8597240447998047
+Average loss from batch 7601 to 7650 is 3.845306396484375
+Average loss from batch 7651 to 7700 is 4.06447696685791
+Average loss from batch 7701 to 7750 is 3.9883549213409424
+Average loss from batch 7751 to 7800 is 3.9694817066192627
+Average loss from batch 7801 to 7850 is 3.9422852993011475
+Average loss from batch 7851 to 7900 is 3.883580446243286
+Average loss from batch 7901 to 7950 is 3.8568501472473145
+Average loss from batch 7951 to 8000 is 4.155725479125977
+Average train loss for epoch 2 is 3.9780771732330322
+Evaluating the model after epoch 2
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa
+aaaaaaaaa

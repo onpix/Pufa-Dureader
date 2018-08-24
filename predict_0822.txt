@@ -1,0 +1,44 @@
+nohup: ignoring input
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:85: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_p.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:86: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_q.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:87: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:88: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:41: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:42: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_r.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:43: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.out_l.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:44: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_mask.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:45: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.w.data, mean=0, std=0.05)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:225: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.V.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:226: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(self.W_a.weight.data, gain=1)
+/home/brody/baiduReader/my_dureader_single/layers/eric_temp_layers.py:229: UserWarning: nn.init.normal is now deprecated in favor of nn.init.normal_.
+  torch.nn.init.normal(self.v.data, mean=0, std=0.05)
+add train_file
+vocab size is  487904
+after filtered vocab size is  299289
+over_map word num is  0
+add test_file
+total number of parameters: 92881052
+number of trainable parameters: 92881052
+Traceback (most recent call last):
+  File "run.py", line 196, in <module>
+    run()
+  File "run.py", line 192, in run
+    predict(args)
+  File "run.py", line 173, in predict
+    rc_model.restore(model_dir=args.model_dir, model_prefix=args.algo)
+  File "/home/brody/baiduReader/my_dureader_single/my_rc_model.py", line 417, in restore
+    self.model.load_state_dict(torch.load(os.path.join(model_dir, model_prefix)))
+  File "/home/brody/anaconda3/lib/python3.6/site-packages/torch/serialization.py", line 301, in load
+    f = open(f, 'rb')
+FileNotFoundError: [Errno 2] No such file or directory: '../data/models_search_pretrain/BIDAF'
