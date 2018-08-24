@@ -2,3 +2,4 @@
 *.bz2
 BIDAF*
 MLSTM*
+*.pyc
