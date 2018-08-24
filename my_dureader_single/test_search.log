@@ -1,0 +1,21 @@
+add train_file
+vocab size is  19775
+after filtered vocab size is  12525
+Traceback (most recent call last):
+  File "run.py", line 211, in <module>
+    run()
+  File "run.py", line 200, in run
+    prepare(args)
+  File "run.py", line 134, in prepare
+    vocab.load_pretrained_embeddings(args.pre_train_file)
+  File "/disk/Pufa-Dureader/my_dureader_single/vocab.py", line 148, in load_pretrained_embeddings
+    for line in codecs.open(embedding_path, 'r', 'utf-8'):
+  File "/home/dian/.virtualenvs/ml/lib/python3.5/codecs.py", line 711, in __next__
+    return next(self.reader)
+  File "/home/dian/.virtualenvs/ml/lib/python3.5/codecs.py", line 642, in __next__
+    line = self.readline()
+  File "/home/dian/.virtualenvs/ml/lib/python3.5/codecs.py", line 555, in readline
+    data = self.read(readsize, firstline=True)
+  File "/home/dian/.virtualenvs/ml/lib/python3.5/codecs.py", line 501, in read
+    newchars, decodedbytes = self.decode(data, self.errors)
+UnicodeDecodeError: 'utf-8' codec can't decode bytes in position 0-1: invalid continuation byte
