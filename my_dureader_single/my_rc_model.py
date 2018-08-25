@@ -396,7 +396,7 @@ class RCModel(object):
                         if not re.match(r'[0-9]*', best_answer):
                             best_answer = '日'
                     if sample['question_type'] == 'entity':
-                        if re.match(r'.*月[0-9]$', best_answer):
+                        if re.match(r'.*月[0-9]*$', best_answer):
                             best_answer = best_answer + '日'
                     if len(best_answer) < 4 and sample['question_type'] == 'DESCRIPTION':
                         best_answer = sample['documents'][0]['paragraphs'][0]
