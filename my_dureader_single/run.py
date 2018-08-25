@@ -70,7 +70,9 @@ def parse_args():
     # '../data/models_search_pretrain/BIDAF_10'
     train_settings.add_argument('--pretrain_model_path', default=False,
                                 help='input the path of pretrianed model to continue train.')
-
+    train_settings.add_argument('--rm_vocab_path', default=False,
+                                help='delete vocab data to solve VocabSize Error.')
+    
 
     path_settings = parser.add_argument_group('path settings')
     path_settings.add_argument('--train_files', nargs='+',
@@ -205,16 +207,22 @@ def run():
                         filemode='a+',
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
-    #prepare(args)
+    if args.rm_vocab_path:
+        try:
+            os.remove(args.rm_vocab_path)
+        expect FileNotFoundError:
+        print('[Warning] File not exsit.')    
+        continue
+    prepare(args)
     print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
-    #train(args)
+    train(args)
     print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
     #evaluate(args)
-    print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
+    #print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
     predict(args)
     print("\033[0;30;46m WHY Info: Test data predict complete. Everything done. \033[0m ")
     time2 = datetime.datetime.now()
-    print('[END TIME] ', time2, '\n[TOTAL USE] ', (time2-time1).second/60, 'min')
+    print('[END TIME] ', time2, '\n[TOTAL USE] ', (time2-time1).seconds/60, 'min')
 
 
 def gen_yesno_vec():

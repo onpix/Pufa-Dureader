@@ -78,9 +78,9 @@ def read_file(file_name, is_ref=False):
 
     results = {}
     if is_ref:
-        keys = ['source', 'answers', 'yesno_answers', 'entity_answers', 'question_type']
+        keys = [ 'answers', 'question_type']
     else:
-        keys = ['answers', 'yesno_answers']
+        keys = ['answers']
 
     zf = zipfile.ZipFile(file_name, 'r') if file_name.endswith('.zip') else None
     file_list = [file_name] if zf is None else zf.namelist()
@@ -101,8 +101,9 @@ def read_file(file_name, is_ref=False):
                 else:
                     results[qid][k] = obj[k]
             if is_ref:
-                for i, e in enumerate(results[qid]['entity_answers']):
-                    results[qid]['entity_answers'][i] = normalize(e)
+                pass
+                #for i, e in enumerate(results[qid]['entity_answers']):
+                #    results[qid]['entity_answers'][i] = normalize(e)
     return results
 
 
@@ -119,7 +120,7 @@ def calc_metrics(pred_result, ref_result, bleu_eval, rouge_eval):
     Returns:
         bleu-4 and rouge-l values as a tuple of float values.
     """
-    for qid, results in ref_result.iteritems():
+    for qid, results in ref_result.items():
         cand_result = pred_result.get(qid, {})
         pred_answers = cand_result.get('answers', [])
         if not pred_answers:
@@ -175,7 +176,7 @@ def main(args):
             'ROUGE-L': round(rouge_l* 100, 2),
             'BLEU-4': round(bleu4 * 100, 2),
             }
-    print json.dumps(metrics, ensure_ascii=False).encode('utf8')
+    print(json.dumps(metrics, ensure_ascii=False).encode('utf8'))
 
 
 if __name__ == '__main__':

@@ -6,8 +6,6 @@ import json
 from collections import defaultdict
 import sys
 import common
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 
 class BLEU(object):
@@ -43,6 +41,9 @@ class BLEU(object):
             )[1]
 
     def score(self):
+        print(self.n_size)
+        print(self.match_ngram[0])
+        print(self.candi_ngram[0])
         prob_list = [
                 self.match_ngram[n_size] / float(self.candi_ngram[n_size])
                 for n_size in range(self.n_size)
