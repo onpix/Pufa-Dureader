@@ -4,6 +4,7 @@ import torch.nn as nn
 import my_rc_model
 from dataset import BRCDataset
 import pickle
+from run import evaluate
 VOCAB_PATH = '../data/vocab_search_pretrain/vocab.data'
 train_files = '../data/yesno/data_train_preprocessed.json'
 dev_files = '../data/yesno/data_dev_preprocessed.json'
@@ -27,4 +28,8 @@ def convert():
     for x in range(len(brc_data.train_set)):
         p = brc_data.train_set[0]['passages'][0]['passage_token_ids']
         q = brc_data.train_set[0]['question_token_ids']
-    return 
+    return 0 
+
+def gen_data():
+    
+    

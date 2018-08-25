@@ -287,9 +287,13 @@ class RCModel(object):
                            answers will not be saved if None
             save_full_info: if True, the pred_answers will be added to raw sample and saved
         """
+        MODE = 'yesno'
         # print("\033[0;30;46m WHY Info: result_dir is: {}. \033[0m ".format(result_dir))
         pred_answers, ref_answers = [], []
         total_num, num_of_batch, correct_p_num, select_total_num, select_true_num = 0, 0, 0, 0, 0
+        if MODE == 'yesno':
+            para = []
+            qua = []
         self.model.eval()
         for b_itx, batch in enumerate(eval_batches):
             # print("[debug] in func eval")
@@ -308,63 +312,69 @@ class RCModel(object):
             # [why edit] update code version to torch 0.4
             q = Variable(torch.LongTensor(batch['question_token_ids']), requires_grad=False).cuda()
             # start_label = Variable(torch.LongTensor(batch['start_id']), volatile=True).cuda()
-            start_label = Variable(torch.LongTensor(batch['start_id']), requires_grad=False).cuda()
-            # ---------------------------------------------
+            if MODE == 'yesno':
+                para.append(p)
+                qua.append(q)
+            else:
+                start_label = Variable(torch.LongTensor(batch['start_id']), requires_grad=False).cuda()
+                # ---------------------------------------------
 
 
-            # batch_size
-            # end_label = Variable(torch.LongTensor(batch['end_id']), volatile=True).cuda()
-            # batch_size * max_passage_num x padded_p_len x 2
-            answer_prob = self.model(p, q)
-            # batch_size * max_passage_num x padded_p_len
-            answer_begin_prob = answer_prob[:, :, 0].contiguous()
-            # batch_size * max_passage_num x padded_p_len
-            answer_end_prob = answer_prob[:, :, 1].contiguous()
-            total_num += len(batch['raw_data'])
-            # padded_p_len = len(batch['passage_token_ids'][0])
-            max_passage_num = p.size(0) // start_label.size(0)
-            for idx, sample in enumerate(batch['raw_data']):
-                select_total_num += 1
-                # max_passage_num x padded_p_len
-                start_prob = answer_begin_prob[idx * max_passage_num: (idx + 1) * max_passage_num, :]
-                end_prob = answer_end_prob[idx * max_passage_num: (idx + 1) * max_passage_num, :]
+                # batch_size
+                # end_label = Variable(torch.LongTensor(batch['end_id']), volatile=True).cuda()
+                # batch_size * max_passage_num x padded_p_len x 2
+                answer_prob = self.model(p, q)
+                # batch_size * max_passage_num x padded_p_len
+                answer_begin_prob = answer_prob[:, :, 0].contiguous()
+                # batch_size * max_passage_num x padded_p_len
+                answer_end_prob = answer_prob[:, :, 1].contiguous()
+                total_num += len(batch['raw_data'])
+                # padded_p_len = len(batch['passage_token_ids'][0])
+                max_passage_num = p.size(0) // start_label.size(0)
+                for idx, sample in enumerate(batch['raw_data']):
+                    select_total_num += 1
+                    # max_passage_num x padded_p_len
+                    start_prob = answer_begin_prob[idx * max_passage_num: (idx + 1) * max_passage_num, :]
+                    end_prob = answer_end_prob[idx * max_passage_num: (idx + 1) * max_passage_num, :]
 
-                best_answer, best_p_idx = self.find_best_answer(sample, start_prob, end_prob)
+                    best_answer, best_p_idx = self.find_best_answer(sample, start_prob, end_prob)
 
-                # [why] added by WHY, 2018.8.22, to solve KeyError in prediction.
-                MODE = 'predict'
-                if MODE == 'predict':
-                    pass 
-                else:
-                    if 'answer_passages' in sample.keys():
-                        if best_p_idx in sample['answer_passages']:
-                            correct_p_num += 1
+                    # [why] added by WHY, 2018.8.22, to solve KeyError in prediction.
+                    MODE = 'predict'
+                    if MODE == 'predict':
+                        pass 
+                    else:
+                        if 'answer_passages' in sample.keys():
+                            if best_p_idx in sample['answer_passages']:
+                                correct_p_num += 1
+                        
+                        try:
+                            if sample['passages'][best_p_idx]['is_selected']:
+                                select_true_num += 1
+                        except KeyError:
+                            print("\033[0;30;46m WHY Info: sample passages is:\n {} \033[0m ".format(sample['passages']))
+                            continue
+                    #-----------------------------------------------------------------
+
                     
-                    try:
-                        if sample['passages'][best_p_idx]['is_selected']:
-                            select_true_num += 1
-                    except KeyError:
-                        print("\033[0;30;46m WHY Info: sample passages is:\n {} \033[0m ".format(sample['passages']))
-                        continue
-                #-----------------------------------------------------------------
-
-                
-                if save_full_info:
-                    sample['pred_answers'] = [best_answer]
-                    pred_answers.append(sample)
-                else:
-                    pred_answers.append({'question_id': sample['question_id'],
-                                         'question_type': sample['question_type'],
-                                         'answers': [best_answer],
-                                         'entity_answers': [[]],
-                                         'yesno_answers': []})
-                if 'answers' in sample:
-                    ref_answers.append({'question_id': sample['question_id'],
-                                        'question_type': sample['question_type'],
-                                        'answers': sample['answers'],
-                                        'entity_answers': [[]],
-                                        'yesno_answers': []})
-
+                    if save_full_info:
+                        sample['pred_answers'] = [best_answer]
+                        pred_answers.append(sample)
+                    else:
+                        pred_answers.append({'question_id': sample['question_id'],
+                                            'question_type': sample['question_type'],
+                                            'answers': [best_answer],
+                                            'entity_answers': [[]],
+                                            'yesno_answers': []})
+                    if 'answers' in sample:
+                        ref_answers.append({'question_id': sample['question_id'],
+                                            'question_type': sample['question_type'],
+                                            'answers': sample['answers'],
+                                            'entity_answers': [[]],
+                                            'yesno_answers': []})
+        
+        if MODE == 'yesno':
+            return para, qua
         if result_dir is not None and result_prefix is not None:
             result_file = os.path.join(result_dir, result_prefix + '.json')
             with open(result_file, 'w') as fout:

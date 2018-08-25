@@ -7,11 +7,14 @@
 
 score log:
 
--   discription: all_data -> BIDAF, 
-    yes-no: yesno -> BIDAF
-    entity: entity -> BIDAF 
+-   discription: all_data -> BIDAF, epoch 10
+    yes-no: yesno -> BIDAF, epoch 10
+    entity: entity -> BIDAF, epoch 10
     All param default.
     
     SCORE: 7.2
 
 -  yes-no: yes-no data->BIDAF, delete `。`: Runtime error.
+
+-  description: description->BIDAF, epoch 10, well-fit.
+

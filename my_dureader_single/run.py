@@ -217,5 +217,10 @@ def run():
     print('[END TIME] ', time2, '\n[TOTAL USE] ', (time2-time1).second/60, 'min')
 
 
+def gen_yesno_vec():
+    args = parse_args()
+    prepare(args)
+    evaluate(args)
+
 if __name__ == '__main__':
     run()
