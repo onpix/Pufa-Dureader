@@ -35,7 +35,7 @@ def preproc(para, qua):
         new = np.zeros((BATCH_SIZE, size))
         for i in range(BATCH_SIZE):
             tmp = np.append(p[i], q[i])
-            len(tmp) = real_len
+            real_len = len(tmp)
             if real_len > size:
                 new[i] = tmp[:size]
             else:
