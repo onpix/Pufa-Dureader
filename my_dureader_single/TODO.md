@@ -29,6 +29,14 @@
     
     SCORE: 7.6
 
+-   **[THIRD COMMIT]**
+    discription: **description** -> BIDAF, epoch 10
+    yes-no: all_data -> all_yes, epoch 10, yes_num=0
+    entity: entity -> BIDAF, epoch 8
+    All param default.
+    
+    SCORE: ??
+
 
 
 ## TRAIN LOG
@@ -40,6 +48,8 @@ QAnet, train_data: description, epoch 20, ID = None
 QAnet, train_data: description, epoch 100, ID = 1036
 LOSS: 0~57 epoch decent
 
+[13:29]
+BIDAF, train_data: entity_dev+train, epoch 11, 
 
 ## DEBUG LOG
 
