@@ -115,6 +115,14 @@ def prepare(args):
     """
     checks data, creates the directories, prepare the vocabulary and embeddings
     """
+    #--------------------------------
+    if args.rm_vocab_path:
+        try:
+            os.remove(args.rm_vocab_path)
+        except FileNotFoundError:
+            print('[Warning] File not exsit.')    
+            pass
+
     for data_path in args.train_files + args.dev_files + args.test_files:
         assert os.path.exists(
             data_path), '{} file does not exist.'.format(data_path)
@@ -207,15 +215,10 @@ def run():
                         filemode='a+',
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
-    if args.rm_vocab_path:
-        try:
-            os.remove(args.rm_vocab_path)
-        except FileNotFoundError:
-            print('[Warning] File not exsit.')    
-            pass
-    prepare(args)
+    # prepare(args)
     print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
-    train(args, MODE_YESNO=False)
+    
+    # train(args, MODE_YESNO=False)
     print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
     #evaluate(args)
     #print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
