@@ -210,9 +210,9 @@ def run():
     if args.rm_vocab_path:
         try:
             os.remove(args.rm_vocab_path)
-        expect FileNotFoundError:
-        print('[Warning] File not exsit.')    
-        continue
+        except FileNotFoundError:
+            print('[Warning] File not exsit.')    
+            pass
     prepare(args)
     print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
     train(args)

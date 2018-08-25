@@ -5,7 +5,7 @@
 
 
 
-## score log:
+## SCORE LOG
 
 -   **[FIRST COMMIT]**
     discription: all_data -> BIDAF, epoch 10
@@ -34,4 +34,13 @@
 ## TRAIN LOG
 
 [10:10] 
-QAnet, train_data: description, epoch 20
+QAnet, train_data: description, epoch 20, ID = None
+
+[10:36]
+QAnet, train_data: description, epoch 100, ID = 1036
+LOSS: 0~57 epoch decent
+
+
+## DEBUG LOG
+
+python run.py --rm_vocab_path /disk/Pufa-Dureader/data/vocab_search_pretrain/description/vocab.data --pre_train_file ../data/mrc.vec --train_files ../data/sample/train_sample.json --dev_files ../data/sample/dev_sample.json --test_files ../data/sample/test_sample.json 
