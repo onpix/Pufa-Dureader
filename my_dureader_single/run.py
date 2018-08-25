@@ -228,11 +228,14 @@ def run():
 def gen_yesno_vec():
     args = parse_args()
     prepare(args)
-    with open(os.path.join(args.vocab_dir, 'vocab.data'), 'rb') as fin:
+    VOCAB_PATH = '../data/vocab_search_pretrain/vocab.data'
+    train_files = '../data/yesno/data_train_preprocessed.json'
+    dev_files = '../data/yesno/data_dev_preprocessed.json'
+    with open(os.path.join(VOCAB_PATH, 'vocab.data'), 'rb') as fin:
         vocab = pickle.load(fin)
-    assert len(args.dev_files) > 0, 'No dev files are provided.'
+    assert len(dev_files) > 0, 'No dev files are provided.'
     brc_data = BRCDataset(args.max_p_num, args.max_p_len,
-                          args.max_q_len, dev_files=args.dev_files)
+                          args.max_q_len, dev_files=train_files)
     brc_data.convert_to_ids(vocab)
     rc_model = RCModel(vocab, args)
     dev_batches = brc_data.gen_mini_batches('dev', args.batch_size,
