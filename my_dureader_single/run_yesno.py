@@ -32,10 +32,15 @@ def preproc(para, qua):
     data = torch.ones((len(para), BATCH_SIZE, size))
     j = 0
     for p, q in zip(para, qua):
-        new = np.ones((BATCH_SIZE, size))
+        new = np.zeros((BATCH_SIZE, size))
         for i in range(BATCH_SIZE):
-            new[i] = np.append(p[i], q[i])[:size]
-        data[j] = torch.Tensor(new)
+            tmp = np.append(p[i], q[i])
+            len(tmp) = real_len
+            if real_len > size:
+                new[i] = tmp[:size]
+            else:
+                new[i] = np.append(tmp, np.zeros(size-real_len))
+        data[j] = torch.FloatTensor(new)
         j += 1
     return data
 
