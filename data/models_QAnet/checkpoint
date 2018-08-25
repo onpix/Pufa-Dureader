@@ -1,0 +1,6 @@
+model_checkpoint_path: "qanet_20"
+all_model_checkpoint_paths: "qanet_16"
+all_model_checkpoint_paths: "qanet_17"
+all_model_checkpoint_paths: "qanet_18"
+all_model_checkpoint_paths: "qanet_19"
+all_model_checkpoint_paths: "qanet_20"
