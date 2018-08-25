@@ -1,10 +1,10 @@
-[START TIME]  2018-08-25 02:09:21.879350
+[START TIME]  2018-08-25 02:37:57.678598
 add test_file
 total number of parameters: 6344252
 number of trainable parameters: 6344252
-Model restored from ../data/models_search_pretrain/description/, with prefix BIDAF_11
-Saving dev.predicted.BIDAF_11 results to ../data/results_demo/description/dev.predicted.BIDAF_11.json
-{'correct': [0, 0, 0, 0], 'reflen': 0, 'testlen': 0, 'guess': [0, 0, 0, 0]}
+Model restored from ../data/models_search_pretrain/description/, with prefix BIDAF_15
+Saving dev.predicted.BIDAF_15 results to ../data/results_demo/description/dev.predicted.BIDAF_15.json
+{'testlen': 0, 'reflen': 0, 'guess': [0, 0, 0, 0], 'correct': [0, 0, 0, 0]}
 ratio: 1e-06
 /home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/fromnumeric.py:2957: RuntimeWarning: Mean of empty slice.
   out=out, **kwargs)
@@ -13,5 +13,5 @@ ratio: 1e-06
 correct selected passage num is 0 in 1765
 correct passage num is 0 in 1765
 [0;30;46m WHY Info: Test data predict complete. Everything done. [0m 
-[END TIME]  2018-08-25 02:12:49.154914 
-[TOTAL USE]  3.45 min
+[END TIME]  2018-08-25 02:41:26.624945 
+[TOTAL USE]  3.466666666666667 min
