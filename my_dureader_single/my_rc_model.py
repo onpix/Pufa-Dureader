@@ -250,8 +250,10 @@ class RCModel(object):
         if MODE_YESNO:
             para = np.array([np.array(x) for x in para])
             qua = np.array([np.array(x) for x in qua])
-            np.savetxt('../data/para.txt', para)
-            np.savetxt('../data/qua.txt', qua)
+            # np.savetxt('../data/para.txt', para)
+            # np.savetxt('../data/qua.txt', qua)
+            np.save('../data/para.npy', para)
+            np.save('../data/qua.npy', qua)
 
         return 1.0 * total_loss / num_of_batch
 

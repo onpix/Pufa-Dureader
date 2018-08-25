@@ -34,8 +34,8 @@ def convert():
 
 def run_yesno():
     gen_yesno_vec()
-    para = np.loadtxt('../data/para.txt')
-    qua = np.loadtxt('../data/qua.txt')
+    para = np.load('../data/para.npy')
+    qua = np.load('../data/qua.npy')
     print(para)
 
 
