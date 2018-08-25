@@ -248,6 +248,8 @@ class RCModel(object):
             self.optimizer.step()
 
         if MODE_YESNO:
+            para = torch.Tensor(para)
+            qua = torch.Tensor(qua)
             para = para.numpy()
             qua = qua.numpy()
             np.savetxt('../data/para.txt', para)
