@@ -287,10 +287,10 @@ class RCModel(object):
                            answers will not be saved if None
             save_full_info: if True, the pred_answers will be added to raw sample and saved
         """
-        MODE = 'yesno'
         # print("\033[0;30;46m WHY Info: result_dir is: {}. \033[0m ".format(result_dir))
         pred_answers, ref_answers = [], []
         total_num, num_of_batch, correct_p_num, select_total_num, select_true_num = 0, 0, 0, 0, 0
+        MODE = 'yesno'
         if MODE == 'yesno':
             para = []
             qua = []
@@ -375,7 +375,10 @@ class RCModel(object):
                                             'entity_answers': [[]],
                                             'yesno_answers': []})
         if MODE == 'yesno':
-            return para, qua
+            para = para.numpy()
+            qua = qua.numpy()
+            np.savetxt('../data/para.txt', para)
+            np.savetxt('../data/qua.txt', qua)
                     
         if result_dir is not None and result_prefix is not None:
             result_file = os.path.join(result_dir, result_prefix + '.json')

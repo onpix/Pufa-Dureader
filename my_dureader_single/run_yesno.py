@@ -1,10 +1,10 @@
 import torch 
-import numpy
+import numpy as np
 import torch.nn as nn
 import my_rc_model
 from dataset import BRCDataset
 import pickle
-from run import evaluate
+from run import gen_yesno_vec
 VOCAB_PATH = '../data/vocab_search_pretrain/vocab.data'
 train_files = '../data/yesno/data_train_preprocessed.json'
 dev_files = '../data/yesno/data_dev_preprocessed.json'
@@ -30,6 +30,16 @@ def convert():
         q = brc_data.train_set[0]['question_token_ids']
     return 0 
 
-def gen_data():
+
+
+def run_yesno():
+    gen_yesno_vec()
+    para = np.loadtxt('../data/para.txt')
+    qua = np.loadtxt('../data/qua.txt')
+    print(para)
+
+
+if __name__ == '__main__':
+    run_yesno()
     
     

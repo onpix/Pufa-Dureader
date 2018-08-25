@@ -228,7 +228,18 @@ def run():
 def gen_yesno_vec():
     args = parse_args()
     prepare(args)
-    evaluate(args)
+    with open(os.path.join(args.vocab_dir, 'vocab.data'), 'rb') as fin:
+        vocab = pickle.load(fin)
+    assert len(args.dev_files) > 0, 'No dev files are provided.'
+    brc_data = BRCDataset(args.max_p_num, args.max_p_len,
+                          args.max_q_len, dev_files=args.dev_files)
+    brc_data.convert_to_ids(vocab)
+    rc_model = RCModel(vocab, args)
+    dev_batches = brc_data.gen_mini_batches('dev', args.batch_size,
+                                            pad_id=vocab.get_id(vocab.pad_token), shuffle=False)
+    rc_model.evaluate(dev_batches)
+
+
 
 if __name__ == '__main__':
     run()
