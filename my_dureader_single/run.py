@@ -142,7 +142,7 @@ def prepare(args):
         pickle.dump(vocab, fout)
 
 
-def train(args):
+def train(args, MODE_YESNO=False):
     """
     trains the reading comprehension model
     """
@@ -155,7 +155,7 @@ def train(args):
     if args.pretrain_model_path:
         rc_model.load_state_dict(torch.load(args.pretrain_model_path))
     rc_model.train(brc_data, args.epochs, args.batch_size, save_dir=args.model_dir,
-                   save_prefix=args.algo)
+                   save_prefix=args.algo, MODE_YESNO=MODE_YESNO)
 
 
 def evaluate(args):
@@ -215,7 +215,7 @@ def run():
             pass
     prepare(args)
     print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
-    train(args)
+    train(args, MODE_YESNO=False)
     print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
     #evaluate(args)
     #print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
@@ -228,19 +228,7 @@ def run():
 def gen_yesno_vec():
     args = parse_args()
     prepare(args)
-    VOCAB_PATH = '../data/vocab_search_pretrain/vocab.data'
-    train_files = '../data/yesno/data_train_preprocessed.json'
-    dev_files = '../data/yesno/data_dev_preprocessed.json'
-    with open(os.path.join(VOCAB_PATH, 'vocab.data'), 'rb') as fin:
-        vocab = pickle.load(fin)
-    assert len(dev_files) > 0, 'No dev files are provided.'
-    brc_data = BRCDataset(args.max_p_num, args.max_p_len,
-                          args.max_q_len, dev_files=train_files)
-    brc_data.convert_to_ids(vocab)
-    rc_model = RCModel(vocab, args)
-    dev_batches = brc_data.gen_mini_batches('dev', args.batch_size,
-                                            pad_id=vocab.get_id(vocab.pad_token), shuffle=False)
-    rc_model.evaluate(dev_batches)
+    train(args, MODE_YESNO=True)
 
 
 

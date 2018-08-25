@@ -178,7 +178,7 @@ class RCModel(object):
         elif args.optim == 'adam':
             self.optimizer = torch.optim.Adam(parameters, lr=init_learning_rate)
 
-    def _train_epoch(self, train_batches):
+    def _train_epoch(self, train_batches, MODE_YESNO=False):
         """
         Trains the model for a single epoch.
         Args:
@@ -187,6 +187,12 @@ class RCModel(object):
         total_loss, num_of_batch = 0, 0
         log_every_n_batch, n_batch_loss = 50, 0
         self.model.train()
+        # --------------------------------
+        if MODE_YESNO:
+            para = []
+            qua = []
+        # --------------------------------
+
         for bitx, batch in enumerate(train_batches, 1):
             num_of_batch += 1
             # batch_size x padded_p_len
@@ -194,6 +200,14 @@ class RCModel(object):
             # batch_size x padded_q_len
             q = Variable(torch.LongTensor(batch['question_token_ids'])).cuda()
             # batch_size
+
+            #-----------------------------------------------------
+            if MODE_YESNO:
+                para.append(p)
+                qua.append(q)
+                continue
+            #-----------------------------------------------------
+
             start_label = Variable(torch.LongTensor(batch['start_id'])).cuda()
             # batch_size
             end_label = Variable(torch.LongTensor(batch['end_id'])).cuda()
@@ -232,9 +246,16 @@ class RCModel(object):
                 n_batch_loss = 0
             loss.backward()
             self.optimizer.step()
+
+        if MODE_YESNO:
+            para = para.numpy()
+            qua = qua.numpy()
+            np.savetxt('../data/para.txt', para)
+            np.savetxt('../data/qua.txt', qua)
+
         return 1.0 * total_loss / num_of_batch
 
-    def train(self, data, epochs, batch_size, save_dir, save_prefix, evaluate=False):
+    def train(self, data, epochs, batch_size, save_dir, save_prefix, evaluate=False, MODE_YESNO=False):
         """
         Train the model with data
         Args:
@@ -245,37 +266,47 @@ class RCModel(object):
             save_prefix: the prefix indicating the model type
             evaluate: whether to evaluate the model on test set after each epoch
         """
-        pad_id = self.vocab.get_id(self.vocab.pad_token)
         max_rouge_l = 0
         be_patient = 0
-        for epoch in range(1, epochs + 1):
-            print('Training the model for epoch {}'.format(epoch))
-            train_batches = data.gen_mini_batches('train', batch_size, pad_id, shuffle=True, train=True)
-            train_loss = self._train_epoch(train_batches)
-            print('Average train loss for epoch {} is {}'.format(epoch, train_loss))
+        pad_id = self.vocab.get_id(self.vocab.pad_token)
+        train_batches = data.gen_mini_batches('train', batch_size, pad_id, shuffle=True, train=True)
 
-            if evaluate:
-                # print('Evaluating the model after epoch {}'.format(epoch))
-                # [why edit] add beautiful info 
-                print("\033[0;30;46m Evaluating the model after epoch {}. \033[0m ".format(epoch))
-                if data.dev_set is not None:
-                    eval_batches = data.gen_mini_batches('dev', batch_size, pad_id, shuffle=False, dev=True)
-                    bleu_rouge = self.evaluate(eval_batches)
-                    print('Dev eval result: {}'.format(bleu_rouge))
+        #--------------------------------------------------------------------
+        if MODE_YESNO:
+            _ = self._train_epoch(train_batches, MODE_YESNO)
+            return 0
+        #--------------------------------------------------------------------
 
-                    # if bleu_rouge['Rouge-L'] > max_rouge_l:
-                    if 1:
-                        self.save(save_dir, save_prefix + '_' + str(epoch))
-                        max_rouge_l = bleu_rouge['Rouge-L']
-                        be_patient = 0
-                    # else:
-                    #     be_patient += 1
-                    #     if be_patient >= 5:
-                    #         self.learning_rate *= 0.8
-                    #         for param_group in self.optimizer.param_groups:
-                    #             param_group['lr'] = self.learning_rate
-            else:
-                self.save(save_dir, save_prefix + '_' + str(epoch))
+        else:
+            train_loss = self._train_epoch(train_batches, MODE_YESNO)
+            for epoch in range(1, epochs + 1):
+                print('Training the model for epoch {}'.format(epoch))
+                train_batches = data.gen_mini_batches('train', batch_size, pad_id, shuffle=True, train=True)
+                train_loss = self._train_epoch(train_batches, MODE_YESNO)
+                print('Average train loss for epoch {} is {}'.format(epoch, train_loss))
+
+                if evaluate:
+                    # print('Evaluating the model after epoch {}'.format(epoch))
+                    # [why edit] add beautiful info 
+                    print("\033[0;30;46m Evaluating the model after epoch {}. \033[0m ".format(epoch))
+                    if data.dev_set is not None:
+                        eval_batches = data.gen_mini_batches('dev', batch_size, pad_id, shuffle=False, dev=True)
+                        bleu_rouge = self.evaluate(eval_batches)
+                        print('Dev eval result: {}'.format(bleu_rouge))
+
+                        # if bleu_rouge['Rouge-L'] > max_rouge_l:
+                        if 1:
+                            self.save(save_dir, save_prefix + '_' + str(epoch))
+                            max_rouge_l = bleu_rouge['Rouge-L']
+                            be_patient = 0
+                        # else:
+                        #     be_patient += 1
+                        #     if be_patient >= 5:
+                        #         self.learning_rate *= 0.8
+                        #         for param_group in self.optimizer.param_groups:
+                        #             param_group['lr'] = self.learning_rate
+                else:
+                    self.save(save_dir, save_prefix + '_' + str(epoch))
 
     def evaluate(self, eval_batches, result_dir=None, result_prefix=None, save_full_info=False):
         """
@@ -290,8 +321,8 @@ class RCModel(object):
         # print("\033[0;30;46m WHY Info: result_dir is: {}. \033[0m ".format(result_dir))
         pred_answers, ref_answers = [], []
         total_num, num_of_batch, correct_p_num, select_total_num, select_true_num = 0, 0, 0, 0, 0
-        MODE = 'yesno'
-        if MODE == 'yesno':
+        MODE_YESNO = True
+        if MODE_YESNO:
             para = []
             qua = []
         self.model.eval()
@@ -312,7 +343,7 @@ class RCModel(object):
             # [why edit] update code version to torch 0.4
             q = Variable(torch.LongTensor(batch['question_token_ids']), requires_grad=False).cuda()
             # start_label = Variable(torch.LongTensor(batch['start_id']), volatile=True).cuda()
-            if MODE == 'yesno':
+            if MODE_YESNO:
                 para.append(p)
                 qua.append(q)
             else:
@@ -374,7 +405,7 @@ class RCModel(object):
                                             'answers': sample['answers'],
                                             'entity_answers': [[]],
                                             'yesno_answers': []})
-        if MODE == 'yesno':
+        if MODE_YESNO:
             para = para.numpy()
             qua = qua.numpy()
             np.savetxt('../data/para.txt', para)
