@@ -373,7 +373,7 @@ class RCModel(object):
                 best_answer, best_p_idx = self.find_best_answer(sample, start_prob, end_prob)
 
                 # [why] added by WHY, 2018.8.22, to solve KeyError in prediction.
-                MODE = 'predict'
+                MODE == 'predict'
                 if MODE == 'predict':
                     pass 
                 else:
@@ -386,27 +386,25 @@ class RCModel(object):
                             select_true_num += 1
                     except KeyError:
                         print("\033[0;30;46m WHY Info: sample passages is:\n {} \033[0m ".format(sample['passages']))
-                        continue
+                        pass
                     #-----------------------------------------------------------------
-
-                    
-                    if save_full_info:
-                        sample['pred_answers'] = [best_answer]
-                        pred_answers.append(sample)
-                    else:
-                        if len(best_answer) < 4 and sample['question_type'] == 'DESCRIPTION':
-                            best_answer = sample['documents'][0]['paragraphs'][0]
-                        pred_answers.append({'question_id': sample['question_id'],
-                                            'question_type': sample['question_type'],
-                                            'answers': [best_answer],
-                                            'entity_answers': [[]],
-                                            'yesno_answers': []})
-                    if 'answers' in sample:
-                        ref_answers.append({'question_id': sample['question_id'],
-                                            'question_type': sample['question_type'],
-                                            'answers': sample['answers'],
-                                            'entity_answers': [[]],
-                                            'yesno_answers': []})
+                if save_full_info:
+                    sample['pred_answers'] = [best_answer]
+                    pred_answers.append(sample)
+                else:
+                    if len(best_answer) < 4 and sample['question_type'] == 'DESCRIPTION':
+                        best_answer = sample['documents'][0]['paragraphs'][0]
+                    pred_answers.append({'question_id': sample['question_id'],
+                                        'question_type': sample['question_type'],
+                                        'answers': [best_answer],
+                                        'entity_answers': [[]],
+                                        'yesno_answers': []})
+                if 'answers' in sample:
+                    ref_answers.append({'question_id': sample['question_id'],
+                                        'question_type': sample['question_type'],
+                                        'answers': sample['answers'],
+                                        'entity_answers': [[]],
+                                        'yesno_answers': []})
         # if MODE_YESNO:
         #     para = para.numpy()
         #     qua = qua.numpy()
