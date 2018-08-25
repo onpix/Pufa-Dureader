@@ -20,7 +20,7 @@ This module implements the reading comprehension models based on:
 2. the Match-LSTM algorithm described in https://openreview.net/pdf?id=B1-q5Pqxl
 Note that we use Pointer Network for the decoding stage of both models.
 """
-
+import re
 import numpy as np
 import os
 import json
@@ -392,6 +392,12 @@ class RCModel(object):
                     sample['pred_answers'] = [best_answer]
                     pred_answers.append(sample)
                 else:
+                    if len(best_answer) < 2 and sample['question_type'] == 'entity':
+                        if not re.match(r'[0-9]*', best_answer):
+                            best_answer = '日'
+                    if sample['question_type'] == 'entity':
+                        if re.match(r'.*月[0-9]$', best_answer):
+                            best_answer = best_answer + '日'
                     if len(best_answer) < 4 and sample['question_type'] == 'DESCRIPTION':
                         best_answer = sample['documents'][0]['paragraphs'][0]
                     pred_answers.append({'question_id': sample['question_id'],
