@@ -279,7 +279,7 @@ def run():
     os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 
    # if args.prepro:
-    prepro(args)
+   # prepro(args)
    # if args.train:
    # train(args)
    # if args.evaluate:

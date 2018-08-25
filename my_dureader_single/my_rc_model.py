@@ -374,7 +374,7 @@ class RCModel(object):
 
                 # [why] added by WHY, 2018.8.22, to solve KeyError in prediction.
                 MODE = 'predict'
-                if MODE == 'predict':
+                if MODE != 'predict':
                     pass 
                 else:
                     if 'answer_passages' in sample.keys():
