@@ -35,7 +35,7 @@ def preproc(para, qua):
         new = np.ones((BATCH_SIZE, size))
         for i in range(BATCH_SIZE):
             new[i] = np.append(p[i], q[i])[:size]
-        data[j] = new
+        data[j] = torch.Tensor(new)
         j += 1
     return data
 
@@ -43,7 +43,7 @@ def preproc(para, qua):
 def run_yesno():
     para, qua = load()
     data = preproc(para, qua)
-    
+
     
 
 
