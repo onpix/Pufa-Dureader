@@ -13,24 +13,8 @@ max_q_len = 60
 max_p_len = 500
 BATCH_SIZE = 16
 
-class FC(nn.Module):
-    def __init__(self):
-        super(FC, self).__init__()
-        self.layer1 = nn.Linear()
-
-
-def convert():
-    with open(VOCAB_PATH, 'rb') as fin:
-        vocab = pickle.load(fin)
-    brc_data = BRCDataset(max_p_num, max_p_len, max_q_len,
-                          train_files, dev_files)
-    brc_data.convert_to_ids(vocab)
-    for x in range(len(brc_data.train_set)):
-        p = brc_data.train_set[0]['passages'][0]['passage_token_ids']
-        q = brc_data.train_set[0]['question_token_ids']
-    return 0 
-
-
+class LSTM(nn.Module):
+    pass
 
 def run_yesno():
     gen_yesno_vec()

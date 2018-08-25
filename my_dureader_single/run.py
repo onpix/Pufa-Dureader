@@ -216,10 +216,10 @@ def run():
                         format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s')
     args = parse_args()
     # prepare(args)
-    print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
+    #print("\033[0;30;46m WHY Info: Prepare complete. \033[0m ")
     
     # train(args, MODE_YESNO=False)
-    print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
+    #print("\033[0;30;46m WHY Info: Data train complete. \033[0m ")
     #evaluate(args)
     #print("\033[0;30;46m WHY Info: Dev data evaluate complete. \033[0m ")
     predict(args)
