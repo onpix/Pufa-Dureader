@@ -23,7 +23,7 @@
 
 -   **[SECOND COMMIT]**
     discription: **description** -> BIDAF, epoch 10
-    yes-no: all_data -> all_no, epoch 10, yes_num=0
+    yes-no: all_data -> all_yes, epoch 10, yes_num=0
     entity: entity -> BIDAF, epoch 10
     All param default.
     

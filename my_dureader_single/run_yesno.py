@@ -13,8 +13,12 @@ q_len = 24
 p_len = 209
 BATCH_SIZE = 16
 
-class LSTM(nn.Module):
-    pass
+class FC(nn.Module):
+    def __init__(self):
+        super(FC, self).__init__()
+        self.fc1 = nn.Sequential([
+            nn.Linear()
+        ])
 
 def load():
     para_path = '../data/para.npy'
