@@ -33,13 +33,15 @@ def preproc(para, qua):
     j = 0
     for p, q in zip(para, qua):
         new = np.zeros((BATCH_SIZE, size))
-        for i in range(BATCH_SIZE):
-            tmp = np.append(p[i], q[i])
+        i = 0
+        for pp, qq in zip(p, q):
+            tmp = np.append(pp, qq)
             real_len = len(tmp)
             if real_len > size:
                 new[i] = tmp[:size]
             else:
                 new[i] = np.append(tmp, np.zeros(size-real_len))
+            i +=1
         data[j] = torch.FloatTensor(new)
         j += 1
     return data
