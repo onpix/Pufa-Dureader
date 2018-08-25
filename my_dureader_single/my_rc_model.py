@@ -234,7 +234,7 @@ class RCModel(object):
             self.optimizer.step()
         return 1.0 * total_loss / num_of_batch
 
-    def train(self, data, epochs, batch_size, save_dir, save_prefix, evaluate=True):
+    def train(self, data, epochs, batch_size, save_dir, save_prefix, evaluate=False):
         """
         Train the model with data
         Args:
@@ -353,6 +353,8 @@ class RCModel(object):
                     sample['pred_answers'] = [best_answer]
                     pred_answers.append(sample)
                 else:
+                    if len(best_answer) < 4 and sample['question_type'] == 'DESCRIPTION':
+                        best_answer = sample['documents'][0]['paragraphs'][0]
                     pred_answers.append({'question_id': sample['question_id'],
                                          'question_type': sample['question_type'],
                                          'answers': [best_answer],

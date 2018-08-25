@@ -1,0 +1,25 @@
+[START TIME]  2018-08-24 13:55:04.942950
+[0;30;46m WHY Info: Prepare complete. [0m 
+[0;30;46m WHY Info: Data train complete. [0m 
+[0;30;46m WHY Info: Dev data evaluate complete. [0m 
+add test_file
+total number of parameters: 6344252
+number of trainable parameters: 6344252
+Model restored from ../data/models_search_pretrain/description, with prefix BIDAF_10
+[0;30;46m WHY Info: result_dir is: ../data/results_demo/description. [0m 
+Saving dev.predicted.BIDAF_10 results to ../data/results_demo/description/dev.predicted.BIDAF_10.json
+{'guess': [0, 0, 0, 0], 'reflen': 0, 'testlen': 0, 'correct': [0, 0, 0, 0]}
+ratio: 1e-06
+/home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/fromnumeric.py:2957: RuntimeWarning: Mean of empty slice.
+  out=out, **kwargs)
+/home/dian/.virtualenvs/ml/lib/python3.5/site-packages/numpy/core/_methods.py:80: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+correct selected passage num is 0 in 460
+correct passage num is 0 in 460
+[0;30;46m WHY Info: Test data predict complete. Everything done. [0m 
+Traceback (most recent call last):
+  File "run.py", line 221, in <module>
+    run()
+  File "run.py", line 217, in run
+    print('[END TIME] ', time2, '\n[TOTAL USE] ', (time2-time1).second/60, 'min')
+AttributeError: 'datetime.timedelta' object has no attribute 'second'
